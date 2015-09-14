@@ -1,0 +1,21 @@
+div.verticalLine{
+	width: 0px; /* Use only border style */
+	height: 100%;
+	float: right; 
+	border: 1px inset; /* This is default border style for <hr> tag */
+}
+
+hr.vertical
+{	margin-left: 150px;
+	width: 0px;
+	height: 100%; /* or height in PX */
+} 
+
+.post-box {
+	width: 350px;
+}
+
+.postImage {
+	height: 75px;
+	width: 100px;
+}

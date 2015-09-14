@@ -1,0 +1,9 @@
+<form class="well container" ng-submit="vm.login()">
+	<label>Username</label> <br/>
+	<input class="form-control" required placeholder="Username..." ng-model="vm.user.username" />
+	<label>Password</label> <br/>
+	<input type="password" class="form-control" required placeholder="Password..." ng-model="vm.user.password" />
+	<div style="text-align: center;">
+		<button type="submit" ng-disabled="!vm.user.username || !vm.user.password" class="btn btn-lg btn-success">Submit</button>
+	</div>
+</form>

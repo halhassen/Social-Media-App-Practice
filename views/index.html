@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>My App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap_theme.css">
+	<link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+	<div ng-controller="UserController as nav">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" class="sr-only" ui-sref="Home">Slider <span class="glyphicon glyphicon-transfer"></span></a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a ui-sref="CreatePost" ng-show="!nav.status.isLoggedIn">Create</a></li>
+						<li><a ng-click="nav.friends()" ng-show="nav.status.id">Friend List</a></li>
+					</ul>
+					<!-- Show if the user is logged in -->
+					<ul class="nav navbar-nav navbar-left" ng-show="nav.status.id">
+						<li><a ng-click="nav.logout()">Logout</a></li>
+						<li><a ng-click="nav.profile({id: user._id})" ng-show="nav.status.id" >{{nav.status.username}}</a></li>
+					</ul>
+					<!-- Show is the user is not logged in -->
+					<ul class="nav navbar-nav navbar-left" ng-show="!nav.status.id">
+						<li><a ui-sref="RegisterUser">Register</a></li>
+						<li><a ui-sref="LoginUser">Login</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</nav>
+	</div>
+	<ui-view></ui-view>
+	<!-- Ext Libs -->
+	<script src="angular/angular.min.js"></script>
+	<script src="angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="/bower_components/angular-animate/angular-animate.js"></script>
+	<!-- Global Src -->
+	<script src="/javascript/app.js"></script>
+	<!-- Factories -->
+	<script src="/javascript/services/HomeFactory.js"></script>
+	<script src="/javascript/services/UserFactory.js"></script>
+	<!-- Controllers -->
+	<script src="/javascript/controllers/HomeController.js"></script>
+	<script src="/javascript/controllers/UserController.js"></script>
+	<script src="/javascript/controllers/CreatePostController.js"></script>
+
+</body>
+</html>

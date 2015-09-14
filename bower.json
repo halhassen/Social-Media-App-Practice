@@ -1,0 +1,23 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "authors": [
+    "--"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.3",
+    "angular-ui-router": "~0.2.15",
+    "angular-modal-service": "~0.6.7",
+    "angular-animate": "~1.4.5"
+  },
+  "homepage": "https://github.com/halhassen/first_app"
+}

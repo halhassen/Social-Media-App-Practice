@@ -1,0 +1,24 @@
+<div ng-controller="HomeController as vm">
+	<form ng-submit="vm.createPost().prepend()" name="socialPost">
+		<div class="control-group" ng-if="vm.status.id">
+			<input ng-maxlength=10 class="form-control" type="text" name="post" style="width: 300px; height: 100px;" ng-model="vm.post.body" placeholder="What's going on?"/>
+			<span style="color:red" ng-show="socialPost.post.$error.maxlength">
+				Your Post Needs {{post.length}} Less Characters!</span><br/>
+				<span ng-show="vm.post.body">{{10 - vm.post.body.length}} Characters Left</span><br/>
+				<button ng-disabled="!vm.post.body" type="submit" class="btn btn-lg btn-info">Slide It!</button>
+			</div>
+		</form>
+		<h2>Timeline</h2>
+		<hr/>
+		<div ng-repeat="post in vm.posts">
+			<div class="well col-sm-12 post-box">
+				<div style="display: inline-block">
+					<img style="float: left;" class="postImage img-rounded" ng-src="{{post.user.image}}"/>
+					<h3 style="float: left; margin-left: 10px;">{{post.user.username}}</h3><br/>
+				</div>
+				<p>{{post.body}}</p><small>Created: {{post.created | date:"d/M/yyyy hh:mma"}}</small><br/>
+				<button ng-if="vm.status.id" ng-click="vm.deletePost(post)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+				<button ng-if="vm.status.id" ng-click="vm.editPost({id: post._id})" class="btn btn-warning"><span class="glyphicon glyphicon-cog"></span></button>
+			</div>		
+		</div>
+	</div>
